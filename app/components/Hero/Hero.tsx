@@ -57,7 +57,7 @@ export default function Hero() {
               size="lg"
               className="w-full sm:w-auto bg-blue-600 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold text-white hover:bg-blue-600/90"
             >
-              Get this Template
+              Get in touch
             </Button>
             <Chip
               icon={<Heart />}
