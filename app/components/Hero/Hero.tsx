@@ -34,17 +34,6 @@ export default function Hero() {
               Modern, responsive, and built to impress.
             </p>
           </div>
-
-          {/* Bottom CTA */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <Chip
-              icon={<Heart />}
-              variant="green"
-              className="w-full sm:w-auto justify-center"
-            >
-              Loved by all our clients
-            </Chip>
-          </div>
         </div>
       </div>
     </section>
