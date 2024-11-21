@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Chip from "../ui/Chip/Chip";
 import { ParticleBackground } from "../ParticleBackground/ParticleBackground";
 import CalendlyButton from "../CalendlyForm/CalendlyButton";
@@ -32,18 +31,12 @@ export default function Hero() {
               speak to your audience.
             </h1>
             <p className="mx-auto max-w-[700px] text-base sm:text-lg md:text-xl text-gray-400 px-4">
-              modern, responsive, and built to impress.
+              Modern, responsive, and built to impress.
             </p>
           </div>
 
           {/* Bottom CTA */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <Button
-              size="lg"
-              className="w-full sm:w-auto bg-blue-600 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold text-white hover:bg-blue-600/90"
-            >
-              Get in touch
-            </Button>
             <Chip
               icon={<Heart />}
               variant="green"
