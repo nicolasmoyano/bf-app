@@ -25,7 +25,7 @@ export default function Hero() {
           <CalendlyButton />
           {/* Main content */}
           <div className="space-y-4 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white px-4">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white px-4">
               Scalable design solutions,
               <br />
               tailored to your growth.
@@ -35,7 +35,7 @@ export default function Hero() {
               subscription. Start your journey today with a free consultation.
             </p>
           </div>
-          <div className="inline-flex gap-2">
+          <div className="flex flex-col w-full md:flex-row md:w-fit gap-2">
             <Chip variant="green">Unlimited Design Requests</Chip>
             <Chip variant="green">Fast Turnarounds</Chip>
             <Chip variant="green">Subscription Simplicity</Chip>
