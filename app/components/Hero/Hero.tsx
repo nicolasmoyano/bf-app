@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart } from "lucide-react";
 import Chip from "../ui/Chip/Chip";
 import { ParticleBackground } from "../ParticleBackground/ParticleBackground";
 import CalendlyButton from "../CalendlyForm/CalendlyButton";
+import { Heart } from "lucide-react";
 
 export default function Hero() {
   return (
