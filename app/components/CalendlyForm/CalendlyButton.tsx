@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const CalendlyButton = () => {
   return (
-    <div className="inline-flex flex-col sm:flex-row items-center rounded-full border border-blue-600/20 bg-blue-600/10 text-sm backdrop-blur-xl">
+    <div className="inline-flex flex-row items-center rounded-full border border-blue-600/20 bg-blue-600/10 text-sm backdrop-blur-xl">
       <Link
         href="https://calendly.com/brandformstudio/30min"
         className="inline-flex items-center rounded-full bg-blue-600 px-4 py-1.5 text-sm font-semibold text-white group relative"
