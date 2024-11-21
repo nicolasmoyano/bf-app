@@ -6,7 +6,7 @@ import { ParticleBackground } from "../ParticleBackground/ParticleBackground";
 
 export default function Hero() {
   return (
-    <section className="relative w-full bg-slate-950 py-8 md:py-16 lg:py-24 min-h-screen flex items-center">
+    <section className="relative w-full bg-slate-950 py-8 -mt-9 md:py-16 lg:py-24 flex items-center">
       <ParticleBackground />
       {/* Background stars effect */}
       <div className="absolute inset-0 overflow-hidden">
@@ -21,7 +21,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container px-4 md:px-6 mx-auto">
+      <div className="container px-4 mt-20 md:px-6 mx-auto">
         <div className="flex flex-col items-center space-y-6 md:space-y-8">
           {/* Top CTA */}
           <div className="inline-flex flex-col sm:flex-row items-center rounded-full border border-blue-600/20 bg-blue-600/10 text-sm backdrop-blur-xl">
