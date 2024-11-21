@@ -42,7 +42,7 @@ export default function Hero() {
               variant="green"
               className="w-full sm:w-auto justify-center"
             >
-              Loved by over 3 million users
+              Loved by all our clients
             </Chip>
           </div>
         </div>

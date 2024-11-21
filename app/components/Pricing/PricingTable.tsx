@@ -13,7 +13,7 @@ const tiers = [
   {
     name: "Basic",
     description: "Essential branding and design services",
-    price: "5,499",
+    price: "5,500",
     features: [
       "Up to 10 design requests per month",
       "1 active task at a time",
