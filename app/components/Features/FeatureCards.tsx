@@ -1,25 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { LayoutTemplate, Zap, Grid2X2 } from "lucide-react";
+import { LayoutTemplate, Zap, Target } from "lucide-react";
 
 export default function FeatureCards() {
   const features = [
     {
       icon: LayoutTemplate,
-      title: "Custom Designs",
+      title: "Effortless design solutions",
       description:
-        "Tailored websites meticulously crafted to reflect your brand.",
+        "Leverage high-quality, ready-to-go design tools paired with our creative expertise to ensure your brand always looks polished and professional. Simplicity meets impact.",
     },
     {
       icon: Zap,
-      title: "Fast Performance",
+      title: "Lightning-Fast turnaround",
       description:
-        "Optimized for lightning-fast speed to enhance user experience.",
+        "Our streamlined approach ensures your designs are delivered quickly without compromising quality, helping you stay ahead of your deadlines.",
     },
     {
-      icon: Grid2X2,
-      title: "SEO Friendly",
+      icon: Target,
+      title: "Designed with your goals in mind",
       description:
-        "Designed to improve SEO and increase visibility effortlessly.",
+        "From eye-catching visuals to optimized layouts, every design is thoughtfully created to align with your business goals - because your success is our priority.",
     },
   ];
 

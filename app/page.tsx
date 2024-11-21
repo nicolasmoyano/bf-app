@@ -1,6 +1,7 @@
 import Feature from "./components/Features/Features";
 import Hero from "./components/Hero/Hero";
 import PricingTable from "./components/Pricing/PricingTable";
+import Services from "./components/Services/Services";
 
 export default function Home() {
   return (
@@ -8,6 +9,9 @@ export default function Home() {
       <Hero />
       <div id="features">
         <Feature />
+      </div>
+      <div id="services">
+        <Services />
       </div>
       <div id="pricing">
         <PricingTable />

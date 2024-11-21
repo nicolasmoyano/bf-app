@@ -1,7 +1,6 @@
-import Chip from "../ui/Chip/Chip";
 import { ParticleBackground } from "../ParticleBackground/ParticleBackground";
 import CalendlyButton from "../CalendlyForm/CalendlyButton";
-import { Heart } from "lucide-react";
+import Chip from "../ui/Chip/Chip";
 
 export default function Hero() {
   return (
@@ -27,12 +26,20 @@ export default function Hero() {
           {/* Main content */}
           <div className="space-y-4 text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white px-4">
-              Simple design solutions <br className="hidden sm:block" /> that
-              speak to your audience.
+              Scalable design solutions,
+              <br />
+              tailored to your growth.
             </h1>
             <p className="mx-auto max-w-[700px] text-base sm:text-lg md:text-xl text-gray-400 px-4">
-              Modern, responsive, and built to impress.
+              Unlimited requests, fast turnarounds, and expert results—all in a
+              subscription. Start your journey today with a free consultation.
             </p>
+          </div>
+          <div className="inline-flex gap-2">
+            <Chip variant="green">Unlimited Design Requests</Chip>
+            <Chip variant="green">Fast Turnarounds</Chip>
+            <Chip variant="green">Subscription Simplicity</Chip>
+            <Chip variant="green">Advanced Services</Chip>
           </div>
         </div>
       </div>
