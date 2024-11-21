@@ -12,7 +12,7 @@ const services = [
   { name: "Icons", color: "bg-yellow-400" },
   { name: "Brand Guides", color: "bg-blue-400" },
   { name: "Blog Graphics", color: "bg-teal-400" },
-  { name: "+ more", color: "bg-black text-white" },
+  { name: "+ more", color: "bg-gray-900 text-white" },
 ];
 
 export default function Services() {
@@ -20,8 +20,8 @@ export default function Services() {
     <div className="text-white py-20">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold mb-8 max-w-[720px] mx-auto pb-8">
-          From Concepts to Campaigns
-          <br /> We've Got You Covered
+          From concepts to campaigns
+          <br /> We've got you covered
         </h1>
         <div className="flex flex-wrap justify-center gap-4">
           {services.map((service) => (

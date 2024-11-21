@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = ["Features", "About", "Works", "Services", "Pricing"];
+  const menuItems = ["Features", "Works", "Services", "Pricing"];
 
   return (
     <div className="w-full mx-auto mt-8 px-4 sm:px-6 lg:px-8">
