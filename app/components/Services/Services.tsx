@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -16,16 +17,17 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="bg-gray-900 text-white py-12">
+    <div className="text-white py-20">
       <div className="container mx-auto text-center">
-        <h1 className="text-5xl font-bold mb-8">
-          Apps, websites, logos & more
+        <h1 className="text-4xl font-bold mb-8 max-w-[720px] mx-auto pb-8">
+          From Concepts to Campaigns
+          <br /> We've Got You Covered
         </h1>
         <div className="flex flex-wrap justify-center gap-4">
           {services.map((service) => (
             <Button
               key={service.name}
-              className={`px-4 py-2 rounded-full ${service.color} text-white`}
+              className={`px-4 py-2 rounded-full ${service.color} text-white hover:bg-white/20`}
             >
               {service.name}
             </Button>
