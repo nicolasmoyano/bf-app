@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Design Audit — Brandform.studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #080808;
+    --white: #F4F2EE;
+    --grey: #1A1A1A;
+    --mid: #2E2E2E;
+    --muted: #999;
+    --highlight: #FFE44D;
+    --red: #FF3B2F;
+  }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(244,242,238,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(244,242,238,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  header { padding: 40px 0 0; }
+  .logo { font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .logo span { color: var(--muted); font-weight: 400; }
+  .hero { padding: 80px 0 60px; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--muted); }
+  h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; }
+  h1 em { font-style: normal; color: var(--white); }
+  .hl { background: var(--highlight); color: var(--black); padding: 0 6px 2px; display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .subline { font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 480px; }
+  .form-block { background: var(--grey); border: 1px solid var(--mid); padding: 40px; margin-bottom: 16px; }
+  .field { margin-bottom: 20px; }
+  label { display: block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  input[type="email"], input[type="url"] { width: 100%; background: var(--black); border: 1px solid var(--mid); color: var(--white); font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 300; padding: 14px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 0; }
+  input::placeholder { color: var(--muted); }
+  input:focus { border-color: var(--highlight); }
+  .submit-btn { width: 100%; background: var(--white); color: var(--black); border: none; font-family: 'Bricolage Grotesque', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 24px; cursor: pointer; transition: all 0.2s; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .submit-btn:hover { background: var(--highlight); color: var(--black); }
+  .disclaimer { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-align: center; margin-top: 12px; }
+  .success-block { display: none; background: var(--grey); border: 1px solid var(--mid); padding: 40px; text-align: center; }
+  .success-block.visible { display: block; animation: fadeUp 0.5s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .success-icon { font-size: 32px; margin-bottom: 24px; }
+  .success-title { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .success-title .hl { background: var(--highlight); color: var(--black); padding: 0 6px 2px; }
+  .success-body { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 400px; margin: 0 auto; }
+  .what-happens { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--mid); }
+  .what-happens-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+  .what-happens-title::before { content: ''; display: block; width: 24px; height: 1px; background: var(--muted); }
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--mid); }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--highlight); flex-shrink: 0; padding-top: 2px; }
+  .step-content {}
+  .step-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .step-desc { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.7; }
+  footer { padding: 60px 0 40px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; border-top: 1px solid var(--mid); margin-top: 60px; }
+  @media (max-width: 600px) {
+    .form-block, .success-block { padding: 24px 20px; }
+    h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <a href="https://brandform.studio" class="logo">Brandform<span>.studio</span></a>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Free Design Audit</p>
+    <h1>Your product works.<br><em>Let's see if it</em><br><span class="hl">looks like yours.</span></h1>
+    <p class="subline">Drop your URL below. I'll personally review your product's visual identity, UI consistency, and brand differentiation — and send you back a real audit within 48 hours.</p>
+  </section>
+
+  <form id="auditForm" action="https://formspree.io/f/mlgpkydy" method="POST">
+    <div class="form-block">
+      <div class="field">
+        <label>Your email</label>
+        <input type="email" name="email" placeholder="you@yourproduct.com" required>
+      </div>
+      <div class="field">
+        <label>Your product URL</label>
+        <input type="url" name="url" placeholder="https://yourproduct.com" required>
+      </div>
+      <input type="hidden" name="_subject" value="New audit request from brandform.studio">
+      <input type="hidden" name="_next" value="https://brandform.studio/audit?submitted=true">
+      <button type="submit" class="submit-btn">Request my free audit &#8594;</button>
+    </div>
+  </form>
+  <p class="disclaimer">No spam. No sales calls. Just an honest audit — personally reviewed and sent within 48 hours.</p>
+
+  <div class="success-block" id="successBlock">
+    <div class="success-icon">&#9998;</div>
+    <h2 class="success-title">You're on my list. I'll take a <span class="hl">proper look.</span></h2>
+    <p class="success-body">I personally review every submission. You'll hear back from me within 48 hours with a real audit — not a template, not an AI report. Just honest feedback from someone who actually looked at your product.</p>
+  </div>
+
+  <div class="what-happens">
+    <p class="what-happens-title">What happens next</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <p class="step-title">I look at your product</p>
+          <p class="step-desc">I personally spend time on your site — not a bot, not a script. I look at how it feels, what's consistent, what's not, and where your identity is coming through.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <p class="step-title">I write up my honest take</p>
+          <p class="step-desc">You get a real audit — visual consistency, UI components, brand identity, and the one thing I'd fix first if it were my product.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <p class="step-title">You get it within 48 hours</p>
+          <p class="step-desc">No templates. No automation. Just a designer with 15 years of experience telling you exactly what they see.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>&#169; 2025 Brandform.studio</span>
+    <span>Sweden</span>
+  </footer>
+</div>
+
+<script>
+var form = document.getElementById("auditForm");
+var successBlock = document.getElementById("successBlock");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  var data = new FormData(form);
+  fetch("https://formspree.io/f/mlgpkydy", {
+    method: "POST",
+    body: data,
+    headers: { "Accept": "application/json" }
+  })
+  .then(function(res) {
+    if (res.ok) {
+      form.style.display = "none";
+      document.querySelector(".disclaimer").style.display = "none";
+      successBlock.classList.add("visible");
+    } else {
+      form.submit();
+    }
+  })
+  .catch(function() {
+    form.submit();
+  });
+});
+</script>
+</body>
+</html>
