@@ -5,30 +5,50 @@ import test from "node:test";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, root), "utf8");
 
-test("homepage presents the focused AI visibility offer", () => {
+test("homepage positions Brandform around being sales-ready", () => {
   const page = read("app/page.tsx");
 
-  assert.match(page, /Be the local expert AI can find/i);
-  assert.match(page, /AI Visibility Audit/i);
-  assert.match(page, /6,900 SEK/i);
+  assert.match(page, /Make your business easier to buy from/i);
+  assert.match(page, /Buyer Kit Sprint/i);
+  assert.match(page, /Client-Ready Presence/i);
+  assert.match(page, /Document Rescue Sprint/i);
   assert.match(page, /Book a free fit call/i);
-  assert.match(page, /No one can guarantee/i);
+  assert.doesNotMatch(page, /Be the local expert AI can find/i);
 });
 
-test("homepage explains concrete evidence and deliverables", () => {
+test("homepage makes the buyer-kit outcome and scope concrete", () => {
   const page = read("app/page.tsx");
 
   for (const phrase of [
-    "Business truth set",
-    "Search and AI benchmark",
-    "Website and structured data audit",
-    "90-day action plan",
+    "Retail buyer one-pager",
+    "Product and range sheet",
+    "Order-ready leave-behind",
+    "6,900 SEK",
   ]) {
     assert.match(page, new RegExp(phrase, "i"));
   }
 });
 
-test("site publishes crawl discovery files and service schema", () => {
+test("buyer kit demo is a real route with fictional-demo disclosure", () => {
+  assert.equal(existsSync(new URL("app/buyer-kit/page.tsx", root)), true);
+  const demo = read("app/buyer-kit/page.tsx");
+
+  assert.match(demo, /FJÄLLGLASS/i);
+  assert.match(demo, /Concept buyer kit/i);
+  assert.match(demo, /fictional brand/i);
+  assert.match(demo, /EAN/i);
+  assert.match(demo, /Example buyer next steps/i);
+  assert.doesNotMatch(demo, /<button/);
+});
+
+test("buyer kit owns its header so the global navigation cannot overlay it", () => {
+  const navbar = read("app/components/Navbar/Navbar.tsx");
+
+  assert.match(navbar, /usePathname/);
+  assert.match(navbar, /pathname === "\/buyer-kit"/);
+});
+
+test("site publishes crawl discovery files and accurate services schema", () => {
   assert.equal(existsSync(new URL("app/robots.ts", root)), true);
   assert.equal(existsSync(new URL("app/sitemap.ts", root)), true);
 
@@ -36,7 +56,7 @@ test("site publishes crawl discovery files and service schema", () => {
   assert.match(page, /"@type": "Organization"/);
   assert.match(page, /"@type": "Service"/);
   assert.doesNotMatch(page, /ProfessionalService/);
-  assert.match(page, /Offer/);
+  assert.match(page, /Buyer Kit Sprint/);
 });
 
 test("canonical URLs use the final www hostname", () => {
@@ -47,10 +67,10 @@ test("canonical URLs use the final www hostname", () => {
   }
 });
 
-test("metadata describes the specialized service", () => {
+test("metadata describes Brandform's sales-ready offering", () => {
   const layout = read("app/layout.tsx");
 
-  assert.match(layout, /AI Visibility for Local Experts/i);
+  assert.match(layout, /Sales-ready design for small businesses/i);
   assert.match(layout, /metadataBase/);
   assert.match(layout, /openGraph/);
 });
