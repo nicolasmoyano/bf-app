@@ -1,69 +1,88 @@
 "use client";
-import { Menu, X } from "lucide-react"; // Import icons from lucide-react
+
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const Navbar = () => {
+const bookingUrl = "https://calendly.com/brandformstudio/30min";
+const menuItems = [
+  { label: "The audit", href: "#audit" },
+  { label: "Process", href: "#process" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = ["Features", "Works", "Services", "Pricing"];
 
   return (
-    <div className="w-full mx-auto mt-8 px-4 sm:px-6 lg:px-8">
-      {/* Desktop Navigation */}
-      <div className="hidden md:block">
-        <div className="w-fit mx-auto px-8 py-4 rounded-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 shadow-lg shadow-slate-900/50">
-          <ul className="flex items-center gap-8">
-            {menuItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="text-slate-300 hover:text-white text-md font-medium transition-colors duration-200"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+    <nav className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-5">
+      <div className="mx-auto max-w-7xl rounded-2xl border border-white/10 bg-[#07110f]/80 px-4 shadow-2xl shadow-black/20 backdrop-blur-xl sm:px-5">
+        <div className="flex h-16 items-center justify-between">
+          <a href="#" className="flex items-center gap-2.5" aria-label="Brandform home">
+            <span className="grid h-7 w-7 grid-cols-2 gap-0.5 rounded-md bg-emerald-300 p-1.5">
+              <span className="rounded-[1px] bg-slate-950" />
+              <span className="rounded-[1px] bg-slate-950/45" />
+              <span className="rounded-[1px] bg-slate-950/45" />
+              <span className="rounded-[1px] bg-slate-950" />
+            </span>
+            <span className="text-sm font-semibold tracking-[-0.02em] text-white">Brandform</span>
+          </a>
 
-      {/* Mobile Navigation */}
-      <div className="md:hidden">
-        <div className="flex justify-end">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-lg bg-slate-900/50 backdrop-blur-sm border border-slate-800"
+          <div className="hidden items-center gap-7 md:flex">
+            {menuItems.map((item) => (
+              <a key={item.href} href={item.href} className="text-sm text-slate-400 transition hover:text-white">
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          <a
+            href={bookingUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-semibold text-slate-950 transition hover:bg-emerald-200 md:inline-flex"
           >
-            {isMenuOpen ? (
-              <X className="h-6 w-6 text-slate-300" />
-            ) : (
-              <Menu className="h-6 w-6 text-slate-300" />
-            )}
+            Book a call
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+
+          <button
+            type="button"
+            className="rounded-lg border border-white/10 p-2 text-slate-300 md:hidden"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute left-0 right-0 mt-2 px-4">
-            <div className="rounded-lg bg-slate-900/50 backdrop-blur-sm border border-slate-800 shadow-lg shadow-slate-900/50 p-4">
-              <ul className="flex flex-col gap-4">
-                {menuItems.map((item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="text-slate-300 hover:text-white text-md font-medium transition-colors duration-200 block"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          <div className="border-t border-white/10 py-4 md:hidden">
+            <div className="flex flex-col gap-1">
+              {menuItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-white/[0.05] hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950"
+              >
+                Book a free fit call
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         )}
       </div>
-    </div>
+    </nav>
   );
-};
-
-export default Navbar;
+}
