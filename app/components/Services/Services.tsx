@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -21,7 +20,7 @@ export default function Services() {
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold mb-8 max-w-[720px] mx-auto pb-8">
           From concepts to campaigns
-          <br /> We've got you covered
+          <br /> We&apos;ve got you covered
         </h1>
         <div className="flex flex-wrap justify-center gap-4">
           {services.map((service) => (
